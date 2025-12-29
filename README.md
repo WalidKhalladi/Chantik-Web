@@ -16,7 +16,7 @@ Chantik is a construction site management app designed for Tunisian contractors.
 ## 📧 Contact
 
 For questions regarding these documents:  
-📩 contact@chantik.app
+📩 chantik.contact@gmail.com
 
 ---
 
