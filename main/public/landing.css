@@ -246,6 +246,50 @@ body {
     max-width: 500px;
 }
 
+/* Hero Signup Form */
+.hero-signup-form {
+    margin-bottom: 24px;
+    max-width: 480px;
+}
+
+.hero-form-group {
+    display: flex;
+    gap: 12px;
+    background: white;
+    padding: 8px;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(31, 42, 68, 0.15);
+}
+
+.hero-form-group input {
+    flex: 1;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    background: transparent;
+    min-width: 0;
+}
+
+.hero-form-group input::placeholder {
+    color: var(--text-muted);
+}
+
+.hero-form-group .btn {
+    white-space: nowrap;
+    padding: 14px 24px;
+}
+
+.hero-form-note {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 12px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
 .hero-cta {
     display: flex;
     gap: 16px;
@@ -520,6 +564,51 @@ section {
     padding: 6px 0;
     font-size: 0.9rem;
     color: var(--text-muted);
+}
+
+/* Mid-Page CTA Section */
+.mid-cta-section {
+    margin-top: 60px;
+    background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+    border-radius: var(--radius-lg);
+    padding: 48px;
+    text-align: center;
+}
+
+.mid-cta-content h3 {
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.mid-cta-content p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    margin-bottom: 24px;
+}
+
+.mid-cta-form {
+    display: flex;
+    gap: 12px;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.mid-cta-form input {
+    flex: 1;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.mid-cta-form input:focus {
+    box-shadow: 0 0 0 3px rgba(198, 123, 78, 0.3);
+}
+
+.mid-cta-form .btn {
+    white-space: nowrap;
 }
 
 /* ==================== HOW IT WORKS ==================== */
@@ -842,6 +931,67 @@ section {
     font-size: 0.95rem;
 }
 
+/* ==================== FLOATING CTA ==================== */
+.floating-cta {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--primary);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 6px 25px rgba(198, 123, 78, 0.4);
+    z-index: 999;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    pointer-events: none;
+}
+
+.floating-cta.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.floating-cta:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 35px rgba(198, 123, 78, 0.5);
+}
+
+/* Pulse animation for attention */
+.floating-cta.visible::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50px;
+    background: var(--primary);
+    z-index: -1;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    70% {
+        transform: scale(1.3);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
 /* ==================== FOOTER ==================== */
 .footer {
     background: var(--secondary);
@@ -931,6 +1081,16 @@ section {
 
     .hero-description {
         max-width: 100%;
+    }
+
+    .hero-signup-form {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-form-note {
+        justify-content: center;
     }
 
     .hero-cta {
@@ -1107,6 +1267,43 @@ section {
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+
+    /* Hero form responsive */
+    .hero-form-group {
+        flex-direction: column;
+        padding: 12px;
+    }
+
+    .hero-form-group .btn {
+        width: 100%;
+    }
+
+    .hero-form-note {
+        flex-direction: column;
+        gap: 4px;
+        align-items: center;
+    }
+
+    /* Mid CTA responsive */
+    .mid-cta-section {
+        padding: 36px 24px;
+    }
+
+    .mid-cta-form {
+        flex-direction: column;
+    }
+
+    .mid-cta-form .btn {
+        width: 100%;
+    }
+
+    /* Floating CTA responsive */
+    .floating-cta {
+        bottom: 16px;
+        right: 16px;
+        padding: 12px 20px;
+        font-size: 0.9rem;
     }
 }
 

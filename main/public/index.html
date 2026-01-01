@@ -9,6 +9,7 @@
     <meta property="og:description" content="L'application gratuite de gestion de chantier pour les entrepreneurs tunisiens.">
     <meta property="og:type" content="website">
     <title>Chantik - Votre chantier dans votre poche | الشانتي متاعك في جيبك</title>
+    <link rel="icon" href="chantik_icon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -58,10 +59,18 @@
                     L'application de gestion de chantier conçue pour les entrepreneurs tunisiens. 
                     Documentez votre travail quotidien, suivez vos finances et partagez des rapports professionnels en un clic.
                 </p>
+                <!-- Quick Signup Form - Captures visitors immediately -->
+                <form class="hero-signup-form" action="https://formspree.io/f/xjgvjnrl" method="POST">
+                    <div class="hero-form-group">
+                        <input type="email" name="email" placeholder="Entrez votre email" required>
+                        <button type="submit" class="btn btn-primary">
+                            <span>🚀</span> Rejoindre
+                        </button>
+                    </div>
+                    <p class="hero-form-note">✓ Gratuit • ✓ Pas de spam • ✓ Accès prioritaire</p>
+                </form>
+
                 <div class="hero-cta">
-                    <a href="#waitlist" class="btn btn-primary btn-large">
-                        <span>🚀</span> Rejoindre la liste d'attente
-                    </a>
                     <a href="#how-it-works" class="btn btn-secondary btn-large">
                         <span>▶️</span> Voir comment ça marche
                     </a>
@@ -196,6 +205,18 @@
                         <li>✓ Activé par défaut à 20h</li>
                         <li>✓ Désactivable</li>
                     </ul>
+                </div>
+            </div>
+
+            <!-- Mid-Page CTA - Catches visitors who are convinced by features -->
+            <div class="mid-cta-section">
+                <div class="mid-cta-content">
+                    <h3>Convaincu? 🎯</h3>
+                    <p>Rejoignez +100 entrepreneurs déjà inscrits</p>
+                    <form class="mid-cta-form" action="https://formspree.io/f/xjgvjnrl" method="POST">
+                        <input type="email" name="email" placeholder="Votre email" required>
+                        <button type="submit" class="btn btn-primary">S'inscrire maintenant</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -363,6 +384,11 @@
         </div>
     </section>
 
+    <!-- Floating CTA Button - Always visible -->
+    <a href="#waitlist" class="floating-cta" id="floatingCta">
+        Rejoindre
+    </a>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -397,8 +423,8 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 Chantik. Tous droits réservés. Made with ❤️ in Tunisia 🇹🇳</p>
-                <p class="developer-credit">Développé par WKH Dev</p>
+                <p>© 2025 Chantik. Tous droits réservés. Made with ❤️ to Tunisia 🇹🇳</p>
+                <p class="developer-credit">Développé par Walid Khalladi</p>
             </div>
         </div>
     </footer>
@@ -441,6 +467,19 @@
         });
 
         // Form is now handled by Formspree - submissions go directly to your email!
+
+        // Floating CTA visibility - hide when hero form is visible, show when scrolled
+        const floatingCta = document.getElementById('floatingCta');
+        const heroSection = document.querySelector('.hero');
+        
+        window.addEventListener('scroll', () => {
+            const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+            if (window.scrollY > heroBottom - 200) {
+                floatingCta.classList.add('visible');
+            } else {
+                floatingCta.classList.remove('visible');
+            }
+        });
     </script>
 </body>
 </html>
